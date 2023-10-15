@@ -1,0 +1,606 @@
+<!doctype html>
+<head><meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Foldit:wght@500&family=Kalam&family=Montserrat:wght@200&family=Permanent+Marker&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="animate.css">
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/animate.js"></script>
+<style>
+
+.mars {
+overflow: hidden;
+margin-left: 25px;
+width: 100%; 
+height: 746px; 
+margin-top: 0px;
+padding: 0;
+}
+.video { display: none; background: transparent; }
+.video h2{
+  margin: 20px 0px 0px -40px;
+  color: rgba(225,225,225, .01);
+  background-image: url(assets/image/mars2.png);
+  background-repeat: repeat;
+  -webkit-background-clip:text;
+  animation: animate 15s ease-in-out infinite;
+transform: scaleY(1.9);
+text-align: center;
+font-family: Bebas Neue;
+font-size: 400.255px;
+font-stretch: 600%;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: -10.729px;
+}
+
+  @keyframes animate {
+    0%, 100% {
+      background-position: left top;
+    }
+    25%{
+      background-position: right bottom;
+     }
+    50% {
+      background-position: left bottom;
+    }
+    75% {
+      background-position: right top;
+    }   
+}
+body {
+width:100%; height: 100vh;
+background: url(assets/image/body.png) no-repeat;background-position: 0% 0%; background-size: cover; margin: 0px; padding: 0px; position: relative; overflow: hidden;
+}
+.body {
+margin: 0px; 
+padding: 0px; 
+position: relative; 
+overflow: hidden; 
+}
+body::before,
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat-x;
+}
+body::before, 
+body::after    {
+    left: 100%;
+}
+body::before {
+    background-image: url(assets/image/f1.png); 
+background-size: 200%;
+opacity: 0.9;
+    animation: fogmove 6s linear 0s infinite;
+animation-iteration-count: 2;
+}
+body::after {
+    background-image: url(assets/image/f2.png); background-size: 200%;
+    animation: fogmove2 6s linear 0s infinite;
+animation-iteration-count: 2;
+}
+@keyframes fogmove {
+    from {
+        transform: translate3d(-100%, 0, 0);
+    }
+    to {
+        transform: translate3d(-200%, 0, 0);
+    }
+}
+@keyframes fogmove2 {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+.links { 
+font-family: Montserrat;
+color: #F2E1C2;
+font-size: 16px;
+font-style: normal;
+font-weight: 200;
+line-height: normal;
+text-transform: uppercase;
+text-decoration: none;
+}
+.links:hover { color: #F23207; }
+.button { 
+border-radius: 4px; 
+background: #F2E1C2;
+color: #262526; 
+font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+text-transform: uppercase;
+text-decoration: none; 
+padding: 10px 15px; 
+margin-left: 10px; 
+}
+.button:hover { background: #F23207; color: #F2E1C2; }
+@media(max-width: 1280px) { .container { width: 96%; margin: 20px auto; position: relative; } }@media(min-width: 1280px) { .container { width: 100%; max-width: 1200px; margin: 20px auto; position: relative; } }
+@media(max-width: 768px) {
+.top-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  color: #FFF;
+  margin-bottom: 120px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu > li {
+  margin: 0 1rem;
+  overflow: hidden;
+}
+
+.menu-button-container {
+  display: none;
+  height: 100%;
+  width: 30px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+z-index: 99;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.menu-button,
+.menu-button::before,
+.menu-button::after {
+  display: block;
+  background-color: #fff;
+  position: absolute;
+  height: 4px;
+  width: 30px;
+  transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 2px;
+}
+
+.menu-button::before {
+  content: '';
+  margin-top: -8px;
+}
+
+.menu-button::after {
+  content: '';
+  margin-top: 8px;
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button::before {
+  margin-top: 0px;
+  transform: rotate(405deg);
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button {
+  background: rgba(255, 255, 255, 0);
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button::after {
+  margin-top: 0px;
+  transform: rotate(-405deg);
+}
+.menu-button-container {
+    display: flex;
+  }
+  .menu {
+    position: absolute;
+    top: 0;
+    margin-top: 50px;
+    left: 0;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  #menu-toggle ~ .menu li {
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  #menu-toggle:checked ~ .menu li {
+    
+    height: 2.5em;
+    padding: 0.5em;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .menu > li {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0.5em 0;
+    width: 100%;
+    z-index: 99;
+    background-color: rgba(0,0,0,0.9);
+  }
+  .menu > li:not(:last-child) {
+   
+  }
+}
+@media(min-width: 768px) {
+.top-nav { 
+display: none;
+}
+}
+@media(max-width: 768px) {
+.nav {
+display: none;
+}
+}
+@media(min-width: 768px) and (max-width: 900px) { .nav { position: relative; z-index: 1000;display: flex; flex-direction: column; width: 100%; justify-content: space-between; align-items: flex-start; margin: 0px; height: auto; margin-bottom: 100px; } }@media(min-width: 900px) { .nav { position: relative; z-index: 1000;display: flex; max-width: 1200px; justify-content: space-between; align-items: center; margin: 0px; height: 40px; margin-bottom: 130px; } }
+.logo { display: flex; justify-content: flex-start; background: url(logo.svg) no-repeat; background-size: 100%; width: 82px; height: 36px; align-items: flex-start; }
+.link { display: flex; justify-content: flex-end; align-items: center; gap: 30px; }
+
+h1 {
+display: none;
+color: #F23207;
+font-family: Montserrat;
+font-size: 36px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.9px;
+text-transform: uppercase;
+margin-left: 25px;
+}
+
+.sh {
+	overflow: hidden; 
+}
+.shows {
+	overflow: hidden;
+position: absolute; top: 183px; 
+}
+
+.shows div {
+	display: none;
+	width: 2px;
+	height: 597px;
+background: white url(assets/image/loader.svg) no-repeat;
+	text-align: center;
+	font-size: 40px;
+	
+	position: relative;
+	margin-right: 25px;
+}
+@media(max-width: 491px) { .modal-content {
+margin: 50px 20px; 
+position: relative;
+} 
+.modal-content h3 {
+margin-top: 70px;
+color: var(--262526, #262526);
+font-family: Bebas Neue;
+font-size: 20px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: 2.85px;
+text-transform: uppercase;
+}
+.close-animatedModal {
+display: flex;
+padding: 10px;
+align-items: flex-start;
+gap: 10px;
+background: #262526; 
+position: absolute; 
+top: 40px; 
+right: 20px; 
+z-index: 1000;
+}
+.save {
+margin-top: 60px;
+float: right;
+border: none;
+display: flex;
+width: 100%;
+padding: 10px 15px;
+justify-content: center;
+align-items: center;
+gap: 30px;
+border-radius: 4px;
+background: #262526;
+color: #F2E1C2;
+font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+text-transform: uppercase;
+}
+.flex { display: flex; flex-direction: column; justify-content: space-between; width: 100%; margin-top: 60px; gap: 20px; }
+.flex div {
+display: flex;
+flex-direction: column;
+width: 100%;
+gap: 20px;
+}
+}
+@media(min-width: 491px) and (max-width: 1280px) { .modal-content {
+margin: 50px 20px; 
+position: relative;
+}
+.modal-content h3 {
+margin-top: 70px;
+color: var(--262526, #262526);
+font-family: Bebas Neue;
+font-size: 50px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: 2.85px;
+text-transform: uppercase;
+}
+.close-animatedModal {
+display: flex;
+padding: 10px;
+align-items: flex-start;
+gap: 10px;
+background: #262526; 
+position: absolute; 
+top: 40px; 
+right: 20px; 
+z-index: 1000;
+}
+.save {
+margin-top: 60px;
+float: right;
+border: none;
+display: flex;
+width: 387px;
+padding: 10px 15px;
+justify-content: center;
+align-items: center;
+gap: 30px;
+border-radius: 4px;
+background: #262526;
+color: #F2E1C2;
+font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+text-transform: uppercase;
+}
+.flex { display: flex; flex-direction: row; justify-content: space-between; width: 100%; margin-top: 80px; }
+.flex div {
+display: flex;
+flex-direction: column;
+width: 33%;
+gap: 20px;
+}
+}
+@media(min-width: 1280px) { .modal-content {
+margin: 100px 120px; 
+position: relative;
+} .modal-content h3 {
+margin-top: -30px;
+max-width: 588px;
+color: var(--262526, #262526);
+font-family: Bebas Neue;
+font-size: 114px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: 2.85px;
+text-transform: uppercase;
+}
+.close-animatedModal {
+display: flex;
+padding: 10px;
+align-items: flex-start;
+gap: 10px;
+background: #262526; 
+position: absolute; 
+top: 100px; 
+right: 120px; 
+z-index: 1000;
+}
+.save {
+margin-top: 60px;
+float: right;
+border: none;
+display: flex;
+width: 387px;
+padding: 10px 15px;
+justify-content: center;
+align-items: center;
+gap: 30px;
+border-radius: 4px;
+background: #262526;
+color: #F2E1C2;
+font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+text-transform: uppercase;
+}
+.flex { display: flex; flex-direction: row; justify-content: space-between; width: 100%; margin-top: 80px; }
+.flex div {
+display: flex;
+flex-direction: column;
+width: 33%;
+gap: 20px;
+}
+}
+
+.closebt {
+    transition: all 0.2s;
+    cursor:pointer;
+}
+.closebt:hover {
+    transform:rotate(90deg);
+}
+
+.label {
+color: #262526;
+font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+input[type="text"] { 
+border: none;
+background: transparent;
+border-bottom: 1px solid #262526;
+}
+.in {
+color: #262526;
+font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+padding-bottom: 10px;
+}
+
+</style>
+</head>
+<body>
+<div class="body">
+<div class="container">
+<div class="nav">
+<div class="logo"></div>
+<div class="link">
+<a class="links" href="#">О Марсе</a><a class="links" href="#">Процесс</a><a class="links" href="#">Билеты</a><a class="links" href="#">Новости</a><a class="links" href="#">Контакты</a><a class="button" id="open_window" href="#animatedModal">Купить билеты</a>
+</div>
+</div>
+<section class="top-nav">
+    <div>
+      <div class="logo"></div>
+    </div>
+    <input id="menu-toggle" type="checkbox" />
+    <label class="menu-button-container" for="menu-toggle">
+    <div class="menu-button"></div>
+  </label>
+    <ul class="menu"><li><a class="links" href="#">О Марсе</a></li><li><a class="links" href="#">Процесс</a></li><li><a class="links" href="#">Билеты</a></li><li><a class="links" href="#">Новости</a></li><li><a class="links" href="#">Контакты</a></li><li><a class="button" id="open_window" href="#animatedModal">Купить билеты</a></li>
+    </ul>
+  </section>
+
+<div class="shows">
+	<div></div>
+</div>
+<div class="sh"><h1>Точка назначения:</h1></div>
+<div class="mars">
+<div id="video" data-video="https://shopmarket.pro/dev/assets/video/mars.mp4" class="video"><h2>МАРС</h2></div>
+</div>
+</div>
+
+</div>
+
+<div id="animatedModal">
+    <div class="close-animatedModal"> 
+      <img class="closebt" src="close.svg">
+    </div>    
+    <div class="modal-content">
+        <h3>Бронирование билетов</h3>
+<div class="flex">
+<div><label class="label">Дата заезда</label><input type="text" class="in" value="13.05.2022"/></div>
+<div><label class="label">Дата выезда</label><input type="text" class="in" value="20.05.2022"/></div>
+<div><label class="label">Количество</label><input type="text" class="in" value="1"/></div>
+</div>
+<button class="save">Купить билеты</button>
+    </div>
+</div>
+<script>
+var body = document.querySelector(".body");
+
+body.addEventListener("mousemove", function (e) {
+  body.style.backgroundPositionX = -e.offsetX * 1 + "px";
+});
+body.addEventListener("mouseleave", function () {
+  body.style.backgroundPosition = "0px 0px";
+});
+
+</script>
+
+<script>
+$('.shows div:eq(0)').slideDown(1000, function(){
+	$(this).next().slideDown(1500, arguments.callee);
+});
+$('.sh h1:eq(0)').fadeIn(3000, function(){
+	$(this).next().fadeIn(2000, arguments.callee);
+});
+$('.mars div:eq(0)').slideDown(5000, function(){
+	$(this).next().slideDown(3000, arguments.callee);
+});
+
+</script>
+<script>
+$("#open_window").animatedModal({
+    animatedIn:'zoomIn',
+    animatedOut:'bounceOut',
+    color:'#F2E1C2'
+});
+</script>
+<script>
+$("#video").click(function () {
+var video = $(this).attr("data-video");
+$(this).parent().html('<video autoplay="autoplay" width="auto" height="500" src="'+video+'"></video>');
+});
+
+$("body").on("click", "video", function () {
+if (this.paused) {
+  this.play()
+} else {
+  this.pause()
+}
+});	
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
